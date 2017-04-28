@@ -24,13 +24,16 @@ class Team(object):
 		self.players = []
 
 	def total_team_strength(self):
-		self.team_strength = ((teams[team].players[0].strength) + (teams[team].players[1].strength) + (teams[team].players[2].strength))
+		self.team_strength = ((self.players[0].strength) + (self.players[1].strength) + (self.players[2].strength))
+		print (self.players[0].strength) 
+		print (self.players[1].strength)
+		print (self.players[2].strength)
 		print "TEAM STRENGTH: " + str(self.team_strength)
 
 
 
 	def available_salary(self):
-		self.team_salary = self.max_salary - ((teams[team].players[0].salary) + (teams[team].players[1].salary) + (teams[team].players[2].salary))
+		self.team_salary = self.max_salary - ((self.players[0].salary) + (self.players[1].salary) + (self.players[2].salary))
 		print "AVAILABLE SALARY: " + str(self.team_salary)
 
 
@@ -46,17 +49,17 @@ class Team(object):
 players = []
 
 
-julio_jones = Player("Julio Jones", 1000, 7, "Falcons")
+julio_jones = Player("Julio Jones", 5000, 9, "Falcons")
 matt_ryan = Player("Matt Ryan", 1000, 7, "Falcons")
-devonta_freeman = Player("Devonta Freeman", 1000, 7, "Falcons")
+devonta_freeman = Player("Devonta Freeman", 1000, 5, "Falcons")
 
-drew_brees = Player("Drew Brees", 1000, 7, "Saints")
-mark_ingram = Player("Mark Ingram", 1000, 7, "Saints")
-michael_thomas = Player("Michael Thomas", 1000, 7, "Saints")
+drew_brees = Player("Drew Brees", 5000, 9, "Saints")
+mark_ingram = Player("Mark Ingram", 2000, 3, "Saints")
+michael_thomas = Player("Michael Thomas", 1000, 4, "Saints")
 
-cam_newton = Player("Cam Newton", 1000, 7, "Panthers")
-greg_olsen = Player("Greg Olsen", 1000, 7, "Panthers")
-kelvin_benjamin = Player("Kelvin Benjamon", 1000, 7, "Panthers")
+cam_newton = Player("Cam Newton", 5000, 10, "Panthers")
+greg_olsen = Player("Greg Olsen", 900, 6, "Panthers")
+kelvin_benjamin = Player("Kelvin Benjamon", 1000, 3, "Panthers")
 
 falcons = Team("Falcons")
 saints = Team("Saints")
@@ -118,9 +121,8 @@ while True:
 			"%s" % (teams['falcons'].players[2].print_player())
 			print "\n"
 			"%s" % (teams['falcons'].available_salary())
-			
 			"%s" % (teams['falcons'].total_team_strength())
-			# break
+			
 		elif (user_choose_team -1 == 1):
 			"%s" % (teams['panthers'].players[0].print_player())
 			print "\n"
@@ -129,9 +131,8 @@ while True:
 			"%s" % (teams['panthers'].players[2].print_player())
 			print "\n"	
 			"%s" % (teams['panthers'].available_salary())
-			
 			"%s" % (teams['panthers'].total_team_strength())
-			break
+			
 		elif (user_choose_team -1 == 2):
 			"%s" % (teams['saints'].players[0].print_player())
 			print "\n"
@@ -140,10 +141,8 @@ while True:
 			"%s" % (teams['saints'].players[2].print_player())
 			print "\n"
 			"%s" % (teams['saints'].available_salary())
-			
 			"%s" % (teams['saints'].total_team_strength())
-			# break
-	# os.system('clear')		
+			
 	if (user_input == "2"):
 		counter = 0
 		for team in teams:
