@@ -1,4 +1,6 @@
 import os
+from random import randint
+import random
 
 
 class Player(object):
@@ -23,11 +25,9 @@ class Team(object):
 		self.team_strength = 0
 		self.players = []
 
+
 	def total_team_strength(self):
 		self.team_strength = ((self.players[0].strength) + (self.players[1].strength) + (self.players[2].strength))
-		print (self.players[0].strength) 
-		print (self.players[1].strength)
-		print (self.players[2].strength)
 		print "TEAM STRENGTH: " + str(self.team_strength)
 
 
@@ -43,6 +43,10 @@ class Team(object):
 
 	def add_player(self, player_obj):
 		self.players.append(player_obj)
+
+	def compete(self):
+		pass
+		
 
 
 # Establish Variables
@@ -88,6 +92,7 @@ teams['saints'].add_player(michael_thomas)
 
 
 
+teams_competing_against = []
 
 
 
@@ -97,6 +102,7 @@ teams['saints'].add_player(michael_thomas)
 # ===========================
 # ========MAIN LOOP==========
 # ============================
+os.system('clear')
 while True:
 	print "Welcome to the NFC SOUTH TECH BOWL!"
 	print "What would you like to do? "
@@ -122,7 +128,28 @@ while True:
 			print "\n"
 			"%s" % (teams['falcons'].available_salary())
 			"%s" % (teams['falcons'].total_team_strength())
-			
+			print"\n"
+			print "Would you like to:"
+			print "1. Compete"
+			print "2. Edit Roster"
+			user_choose_compete = raw_input("> ")
+			os.system('clear')
+			if (user_choose_compete == "1"):
+				teams_competing_against.append(teams['saints'])                         # Randomized array of competing teams
+				teams_competing_against.append(teams['panthers'])
+				challenger = random.choice(teams_competing_against)
+				print "You have been set to compete against The %s" % challenger.team_name
+				user_accepts_game = raw_input("Accept? Y or N? ")
+				if (user_accepts_game == "y"):
+					if challenger.team_strength < 21:
+						print "You WON! DIRTY BIRD!"
+					else:
+						print "You LOST"
+			elif (user_choose_compete == "2"):
+				pass
+			else:
+				print "That's not an option!"
+
 		elif (user_choose_team -1 == 1):
 			"%s" % (teams['panthers'].players[0].print_player())
 			print "\n"
@@ -132,7 +159,28 @@ while True:
 			print "\n"	
 			"%s" % (teams['panthers'].available_salary())
 			"%s" % (teams['panthers'].total_team_strength())
-			
+			print"\n"
+			print "Would you like to:"
+			print "1. Compete"
+			print "2. Edit Roster"
+			user_choose_compete = raw_input("> ")
+			os.system('clear')
+			if (user_choose_compete == "1"):
+				teams_competing_against.append(teams['falcons'])                         # Randomized array of competing teams
+				teams_competing_against.append(teams['saints'])
+				challenger = random.choice(teams_competing_against)
+				print "You have been set to compete against The %s" % challenger.team_name
+				user_accepts_game = raw_input("Accept? Y or N? ")
+				if (user_accepts_game == "y"):
+					if challenger.team_strength < 19:
+						print "You WON! MR. CHARLOTTE"
+					else:
+						print "You LOST"
+			elif (user_choose_compete == "2"):
+				pass
+			else:
+				print "That's not an option!"
+
 		elif (user_choose_team -1 == 2):
 			"%s" % (teams['saints'].players[0].print_player())
 			print "\n"
@@ -142,7 +190,27 @@ while True:
 			print "\n"
 			"%s" % (teams['saints'].available_salary())
 			"%s" % (teams['saints'].total_team_strength())
-			
+			print"\n"
+			print "Would you like to:"
+			print "1. Compete"
+			print "2. Edit Roster"
+			user_choose_compete = raw_input("> ")
+			os.system('clear')
+			if (user_choose_compete == "1"):
+				teams_competing_against.append(teams['falcons'])                         # Randomized array of competing teams
+				teams_competing_against.append(teams['panthers'])
+				challenger = random.choice(teams_competing_against)
+				print "You have been set to compete against The %s" % challenger.team_name
+				user_accepts_game = raw_input("Accept? Y or N? ")
+				if (user_accepts_game == "y"):
+					if challenger.team_strength < 16:
+						print "You WON! GO SAINTS!"
+					else:
+						print "You LOST"
+			elif (user_choose_compete == "2"):
+				pass
+			else:
+				print "That's not an option!"
 	if (user_input == "2"):
 		counter = 0
 		for team in teams:
