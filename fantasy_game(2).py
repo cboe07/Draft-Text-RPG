@@ -53,7 +53,6 @@ class Team(object):
 players = []
 
 
-
 julio_jones = Player("Julio Jones", 5000, 9, "Falcons")
 matt_ryan = Player("Matt Ryan", 1000, 7, "Falcons")
 devonta_freeman = Player("Devonta Freeman", 1000, 5, "Falcons")
@@ -89,9 +88,7 @@ teams['saints'].add_player(mark_ingram)
 teams['saints'].add_player(michael_thomas)
 
 
-falcons_roster = [julio_jones, matt_ryan, devonta_freeman]
-saints_roster = [drew_brees, mark_ingram, michael_thomas]
-panthers = [cam_newton, greg_olsen, kelvin_benjamin]
+
 
 
 
@@ -106,11 +103,11 @@ teams_competing_against = []
 # ========MAIN LOOP==========
 # ============================
 os.system('clear')
-print "Welcome to the NFC SOUTH TECH BOWL!"
-print "What would you like to do? "
-print "1. CHOOSE TEAM"
-print "2. VIEW ROSTERS"
 while True:
+	print "Welcome to the NFC SOUTH TECH BOWL!"
+	print "What would you like to do? "
+	print "1. CHOOSE TEAM"
+	print "2. VIEW ROSTERS"
 	user_input = raw_input("> ")
 	os.system('clear')
 	if (user_input == "1"):
@@ -131,14 +128,12 @@ while True:
 			print "\n"
 			"%s" % (teams['falcons'].available_salary())
 			"%s" % (teams['falcons'].total_team_strength())
-			print "\n"
+			print"\n"
 			print "Would you like to:"
-			print "1. COMPETE"
-			print "2. EDIT ROSTER"
+			print "1. Compete"
+			print "2. Edit Roster"
 			user_choose_compete = raw_input("> ")
 			os.system('clear')
-
-			# CHOOSING THE FALCONS
 			if (user_choose_compete == "1"):
 				teams_competing_against.append(teams['saints'])                         # Randomized array of competing teams
 				teams_competing_against.append(teams['panthers'])
@@ -151,32 +146,10 @@ while True:
 					else:
 						print "You LOST"
 			elif (user_choose_compete == "2"):
-				# counter = 0
-				# for team in teams:
-				# 	counter += 1
-					# print "%d. %s" % (counter, teams[team].team_name)
-				print "%s" % teams[team].players[0].name
-				print "%s" % teams[team].players[1].name
-				print "%s\n" % teams[team].players[2].name
-				user_choose_trade = raw_input("Trade your Quarterback? Y or N ")
-				print "\n"
-				if (user_choose_trade == "y" or user_choose_trade == "Y"):
-					print "Choose: "
-					print "1. Cam Newton"
-					print "2. Drew Brees"
-					user_choose_qb = raw_input("> ")
-					if (user_choose_qb == "1"):
-						falcons_roster.remove(matt_ryan)
-						falcons_roster.append(cam_newton)
-						print falcons_roster
-				if (user_choose_trade == "n" or user_choose_trade == "N"):
-					pass
-
-
+				pass
 			else:
 				print "That's not an option!"
 
-		# CHOOSING THE PANTHERS
 		elif (user_choose_team -1 == 1):
 			"%s" % (teams['panthers'].players[0].print_player())
 			print "\n"
@@ -204,17 +177,10 @@ while True:
 					else:
 						print "You LOST"
 			elif (user_choose_compete == "2"):
-				counter = 0
-				for team in teams:
-					counter += 1
-					print "%d. %s" % (counter, teams[team].team_name)
-					print "%s" % teams[team].players[0].name
-					print "%s" % teams[team].players[1].name
-					print "%s\n" % teams[team].players[2].name
+				pass
 			else:
 				print "That's not an option!"
 
-        #CHOOSING THE SAINTS
 		elif (user_choose_team -1 == 2):
 			"%s" % (teams['saints'].players[0].print_player())
 			print "\n"
@@ -242,13 +208,7 @@ while True:
 					else:
 						print "You LOST"
 			elif (user_choose_compete == "2"):
-				counter = 0
-				for team in teams:
-					counter += 1
-					print "%d. %s" % (counter, teams[team].team_name)
-					print "%s" % teams[team].players[0].name
-					print "%s" % teams[team].players[1].name
-					print "%s\n" % teams[team].players[2].name
+				pass
 			else:
 				print "That's not an option!"
 	if (user_input == "2"):
@@ -259,7 +219,9 @@ while True:
 			print "%s" % teams[team].players[0].name
 			print "%s" % teams[team].players[1].name
 			print "%s\n" % teams[team].players[2].name
-			print "ENTER \"1\" to CONTINUE"
+
+
+
 
 
 
