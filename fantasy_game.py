@@ -44,6 +44,9 @@ class Team(object):
 	def add_player(self, player_obj):
 		self.players.append(player_obj)
 
+	def del_player(self, player_obj):
+		self.players.remove(player_obj)
+
 	def compete(self):
 		pass
 	
@@ -240,9 +243,9 @@ while True:
 				# for team in teams:
 				# 	counter += 1
 					# print "%d. %s" % (counter, teams[team].team_name)
-				print "%s" % teams[team].players[0].name
-				print "%s" % teams[team].players[1].name
-				print "%s\n" % teams[team].players[2].name
+				print "%s" % teams['falcons'].players[0].name
+				print "%s" % teams['falcons'].players[1].name
+				print "%s\n" % teams['falcons'].players[2].name
 				user_choose_trade = raw_input("Trade your Quarterback? Y or N ")
 				print "\n"
 				if (user_choose_trade == "y" or user_choose_trade == "Y"):
@@ -251,9 +254,22 @@ while True:
 					print "2. Drew Brees"
 					user_choose_qb = raw_input("> ")
 					if (user_choose_qb == "1"):
-						falcons_roster.remove(matt_ryan)
-						falcons_roster.append(cam_newton)
-						print falcons_roster
+						teams['falcons'].del_player(matt_ryan)
+						teams['falcons'].add_player(cam_newton)
+						print "\n"
+						print "Your new roster: "
+						print "%s" % teams['falcons'].players[0].name
+						print "%s" % teams['falcons'].players[1].name
+						print "%s\n" % teams['falcons'].players[2].name
+					if (user_choose_qb == "2"):
+						teams['falcons'].del_player(matt_ryan)
+						teams['falcons'].add_player(drew_brees)
+						print "\n"
+						print "Your new roster: "
+						print "%s" % teams['falcons'].players[0].name
+						print "%s" % teams['falcons'].players[1].name
+						print "%s\n" % teams['falcons'].players[2].name
+						
 				if (user_choose_trade == "n" or user_choose_trade == "N"):
 					pass
 
@@ -290,13 +306,39 @@ while True:
 					else:
 						print "You LOST"
 			elif (user_choose_compete == "2"):
-				counter = 0
-				for team in teams:
-					counter += 1
-					print "%d. %s" % (counter, teams[team].team_name)
-					print "%s" % teams[team].players[0].name
-					print "%s" % teams[team].players[1].name
-					print "%s\n" % teams[team].players[2].name
+				# counter = 0
+				# for team in teams:
+				# 	counter += 1
+				# 	print "%d. %s" % (counter, teams[team].team_name)
+				print "%s" % teams['panthers'].players[0].name
+				print "%s" % teams['panthers'].players[1].name
+				print "%s\n" % teams['panthers'].players[2].name
+				user_choose_trade = raw_input("Trade your Quarterback? Y or N ")
+				print "\n"
+				if (user_choose_trade == "y" or user_choose_trade == "Y"):
+					print "Choose: "
+					print "1. Matt Ryan"
+					print "2. Drew Brees"
+					user_choose_qb = raw_input("> ")
+					if (user_choose_qb == "1"):
+						teams['panthers'].del_player(cam_newton)
+						teams['panthers'].add_player(matt_ryan)
+						print "\n"
+						print "Your new roster: "
+						print "%s" % teams['panthers'].players[0].name
+						print "%s" % teams['panthers'].players[1].name
+						print "%s\n" % teams['panthers'].players[2].name
+					if (user_choose_qb == "2"):
+						teams['panthers'].del_player(cam_newton)
+						teams['panthers'].add_player(drew_brees)
+						print "\n"
+						print "Your new roster: "
+						print "%s" % teams['panthers'].players[0].name
+						print "%s" % teams['panthers'].players[1].name
+						print "%s\n" % teams['panthers'].players[2].name
+						
+				if (user_choose_trade == "n" or user_choose_trade == "N"):
+					pass
 			else:
 				print "That's not an option!"
 
@@ -329,13 +371,39 @@ while True:
 					else:
 						print "You LOST"
 			elif (user_choose_compete == "2"):
-				counter = 0
-				for team in teams:
-					counter += 1
-					print "%d. %s" % (counter, teams[team].team_name)
-					print "%s" % teams[team].players[0].name
-					print "%s" % teams[team].players[1].name
-					print "%s\n" % teams[team].players[2].name
+				# counter = 0
+				# for team in teams:
+				# 	counter += 1
+				# 	print "%d. %s" % (counter, teams[team].team_name)
+					print "%s" % teams['saints'].players[0].name
+					print "%s" % teams['saints'].players[1].name
+					print "%s\n" % teams['saints'].players[2].name
+					user_choose_trade = raw_input("Trade your Quarterback? Y or N ")
+					print "\n"
+					if (user_choose_trade == "y" or user_choose_trade == "Y"):
+						print "Choose: "
+						print "1. Cam Newton"
+						print "2. Matt Ryan"
+						user_choose_qb = raw_input("> ")
+						if (user_choose_qb == "1"):
+							teams['saints'].del_player(drew_brees)
+							teams['saints'].add_player(cam_newton)
+							print "\n"
+							print "Your new roster: "
+							print "%s" % teams['saints'].players[0].name
+							print "%s" % teams['saints'].players[1].name
+							print "%s\n" % teams['saints'].players[2].name
+						if (user_choose_qb == "2"):
+							teams['saints'].del_player(drew_brees)
+							teams['saints'].add_player(matt_ryan)
+							print "\n"
+							print "Your new roster: "
+							print "%s" % teams['saints'].players[0].name
+							print "%s" % teams['saints'].players[1].name
+							print "%s\n" % teams['saints'].players[2].name
+						
+					if (user_choose_trade == "n" or user_choose_trade == "N"):
+						pass
 			else:
 				print "That's not an option!"
 	if (user_input == "2"):
